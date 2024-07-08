@@ -29,3 +29,4 @@ extensions/*/build
 web/database.sqlite
 cheatsheet
 .shopify
+.idea
