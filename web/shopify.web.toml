@@ -2,3 +2,6 @@ type="backend"
 
 [commands]
 dev = "npm run dev"
+
+[access_scopes]
+scopes = "read_customers, write_customers"

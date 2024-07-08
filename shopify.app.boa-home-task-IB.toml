@@ -1,0 +1,1 @@
+scopes = "read_customers, write_customers"
