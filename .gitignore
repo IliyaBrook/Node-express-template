@@ -30,3 +30,4 @@ web/database.sqlite
 cheatsheet
 .shopify
 .idea
+graphql.config.yml

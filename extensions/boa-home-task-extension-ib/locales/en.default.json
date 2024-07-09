@@ -1,3 +1,11 @@
 {
-  "welcome": "Welcome to the {{target}} extension!"
+  "welcome": "Welcome to the {{target}} extension!",
+  "login_to_save_cart": "Please log in to save your cart.",
+  "save_cart": "Save Cart",
+  "overwrite_warning": "You already have a saved cart. Saving will overwrite the existing cart.",
+  "confirm_save": "Confirm Save",
+  "products": "products",
+  "cart_saved": "Cart saved successfully.",
+  "warning": "Warning",
+  "no_products_detected": "No products selected."
 }

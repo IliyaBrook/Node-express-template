@@ -1,0 +1,3 @@
+[extensions.capabilities]
+network_access = true
+block_progress = true

@@ -1,3 +1,11 @@
 {
-  "welcome": "Bienvenue dans l'extension {{target}}!"
+  "login_to_save_cart": "Veuillez vous connecter pour enregistrer votre panier.",
+  "welcome": "Bienvenue dans l'extension {{target}}!",
+  "save_cart": "Enregistrer le panier",
+  "overwrite_warning": "Vous avez déjà un panier sauvegardé. Enregistrer remplacera le panier existant.",
+  "confirm_save": "Confirmer l'enregistrement",
+  "products": "produits",
+  "cart_saved": "Panier enregistré avec succès.",
+  "warning": "Avertissement",
+  "no_products_detected": "Aucun produit sélectionné."
 }

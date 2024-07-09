@@ -6,7 +6,8 @@
     "debug": "node --inspect-brk index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js --ignore ./frontend",
     "serve": "cross-env NODE_ENV=production node index.js",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "prisma-migrate": "prisma migrate dev"
   },
   "type": "module",
   "engines": {
@@ -14,6 +15,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.16.1",
+    "@shopify/shopify-api": "^11.1.0",
     "@shopify/shopify-app-express": "^3.0.0",
     "@shopify/shopify-app-session-storage-prisma": "^2.0.1",
     "@slack/webhook": "^7.0.0",

@@ -4,4 +4,4 @@ type="backend"
 dev = "npm run dev"
 
 [access_scopes]
-scopes = "read_customers, write_customers"
+scopes = "read_customers, unauthenticated_read_customers, write_customers"
