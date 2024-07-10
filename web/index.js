@@ -5,7 +5,9 @@ import serveStatic from 'serve-static';
 import cors from 'cors';
 import shopify from './shopify.js';
 import webhooks from './webhooks.js';
-import prisma from './prisma/index.js';
+import { apiRoutes } from './routes/index.js';
+
+
 
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.PORT, 10);
 const STATIC_PATH = process.env.NODE_ENV === 'production'
@@ -37,36 +39,7 @@ app.get(
 	shopify.redirectToShopifyOrAppRoot()
 );
 
-app.post('/api/import_cart/save', async (req, res) => {
-	const { customer_id, products } = req.body;
-	console.log("customer_id: ", customer_id);
-	console.log("products: ", products);
-	try {
-		await prisma.cart.upsert({
-			where: { userId: customer_id },
-			update: { products },
-			create: { userId: customer_id, products },
-		});
-		res.json({ message: 'saved', items: products });
-	} catch (error) {
-		console.error('Error saving cart:', error);
-		res.status(500).json({ error: 'Error saving cart' });
-	}
-});
-
-app.post('/api/import_cart/get', async (req, res) => {
-	const { customer_id } = req.body;
-	
-	try {
-		const cart = await prisma.cart.findFirst({
-			where: { userId: customer_id },
-		});
-		res.json(cart ? { items: cart.products } : { items: [] });
-	} catch (error) {
-		console.error('Error fetching cart:', error);
-		res.status(500).json({ error: 'Error fetching cart' });
-	}
-});
+apiRoutes.forEach(route => app.use('/api/import_cart', route));
 
 app.post(
 	shopify.config.webhooks.path,

@@ -33,6 +33,7 @@ function Extension() {
 		return extension?.scriptUrl.match(/^(https:\/\/[^\/]+\.com)/)?.[0];
 	};
 	
+	console.log("cartLines:", cartLines)
 	
 	useEffect(() => {
 		async function fetchSavedCart() {
@@ -66,7 +67,11 @@ function Extension() {
 		fetchSavedCart();
 	}, [userData, extension, getSessionToken]);
 	
-	const saveCart = async (sessionToken, proxyUrl, productsToSave) => {
+	const saveCart = async (sessionToken, proxyUrl, productsToSaveIds) => {
+		
+		const productsToSave = cartLines.filter((line) => productsToSaveIds.includes(line.merchandise.id))
+			.map(line => ({ id: line.merchandise.id, quantity: line.quantity }));
+		
 		const response = await fetch(`${proxyUrl}/api/import_cart/save`, {
 			method: 'POST',
 			headers: {
@@ -142,7 +147,7 @@ function Extension() {
 						<BlockStack>
 							{cartLines?.length > 0 ? cartLines.map((line) => (
 								<Choice id={line.merchandise.id} key={line.id}>
-									{line.merchandise.title}
+									{line.merchandise.title} (quantity: {line.quantity})
 								</Choice>
 							)) : []}
 						</BlockStack>
