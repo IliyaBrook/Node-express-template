@@ -3,7 +3,7 @@
 client_id = "e150074b72d222bc00d1548483131b59"
 name = "boa-home-task-IB"
 handle = "boa-home-task-ib"
-application_url = "https://joined-pac-titled-mix.trycloudflare.com"
+application_url = "https://brighton-winter-fabulous-however.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,16 +16,16 @@ scopes = "read_customers,unauthenticated_read_customers,write_customers"
 
 [auth]
 redirect_urls = [
-  "https://joined-pac-titled-mix.trycloudflare.com/auth/callback",
-  "https://joined-pac-titled-mix.trycloudflare.com/auth/shopify/callback",
-  "https://joined-pac-titled-mix.trycloudflare.com/api/auth/callback"
+  "https://brighton-winter-fabulous-however.trycloudflare.com/auth/callback",
+  "https://brighton-winter-fabulous-however.trycloudflare.com/auth/shopify/callback",
+  "https://brighton-winter-fabulous-however.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
 api_version = "2024-07"
 
 [app_proxy]
-url = "https://joined-pac-titled-mix.trycloudflare.com/api/import_cart"
+url = "https://brighton-winter-fabulous-however.trycloudflare.com/api/import_cart"
 subpath = "import_cart"
 prefix = "apps"
 

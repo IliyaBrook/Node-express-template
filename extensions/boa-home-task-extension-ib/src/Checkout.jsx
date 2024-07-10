@@ -33,6 +33,7 @@ function Extension() {
 		return extension?.scriptUrl.match(/^(https:\/\/[^\/]+\.com)/)?.[0];
 	};
 	
+	
 	useEffect(() => {
 		async function fetchSavedCart() {
 			try {
@@ -51,7 +52,7 @@ function Extension() {
 						}),
 					});
 					if (!response.ok) {
-						throw new Error('Failed to fetch saved cart');
+						console.error('Failed to fetch saved cart')
 					}
 					
 					const data = await response.json();

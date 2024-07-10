@@ -41,7 +41,6 @@ app.post('/api/import_cart/save', async (req, res) => {
 	const { customer_id, products } = req.body;
 	console.log("customer_id: ", customer_id);
 	console.log("products: ", products);
-	
 	try {
 		await prisma.cart.upsert({
 			where: { userId: customer_id },
@@ -56,9 +55,7 @@ app.post('/api/import_cart/save', async (req, res) => {
 });
 
 app.post('/api/import_cart/get', async (req, res) => {
-	console.log('req body:', req.body);
 	const { customer_id } = req.body;
-	console.log("customer_id: ", customer_id);
 	
 	try {
 		const cart = await prisma.cart.findFirst({
