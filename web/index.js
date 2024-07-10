@@ -14,15 +14,7 @@ const STATIC_PATH = process.env.NODE_ENV === 'production'
 	? `${process.cwd()}/frontend/dist`
 	: `${process.cwd()}/frontend/`;
 
-const addDefaultShopParam = (req, res, next) => {
-	if (!req.query.host) {
-		req.query.host = req.hostname;
-	}
-	if (!req.query.shop) {
-		req.query.shop = process.env.SHOP;
-	}
-	next();
-};
+
 
 const app = express();
 app.use(cors({
@@ -47,7 +39,6 @@ app.post(
 );
 
 app.use('/api/*', shopify.validateAuthenticatedSession());
-app.use(addDefaultShopParam);
 app.use(serveStatic(STATIC_PATH, { index: false }));
 app.use('/*', shopify.ensureInstalledOnShop(), async (_req, res) => {
 	return res.set('Content-Type', 'text/html').send(readFileSync(join(STATIC_PATH, 'index.html')));

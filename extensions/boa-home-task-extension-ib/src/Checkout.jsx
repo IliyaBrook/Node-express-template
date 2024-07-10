@@ -146,14 +146,14 @@ function Extension() {
 						<BlockSpacer spacing='loose' />
 						<BlockStack>
 							{cartLines?.length > 0 ? cartLines.map((line) => (
-								<Choice id={line.merchandise.id} key={line.id}>
+								<Choice disabled={showWarning} id={line.merchandise.id} key={line.id}>
 									{line.merchandise.title} (quantity: {line.quantity})
 								</Choice>
 							)) : []}
 						</BlockStack>
 					</ChoiceList>
 					<BlockSpacer spacing='loose' />
-					<Button accessibilityRole='submit'>{translate('save_cart')}</Button>
+					<Button disabled={showWarning} accessibilityRole='submit'>{translate('save_cart')}</Button>
 					<BlockSpacer spacing='loose' />
 					{message && <Text>{message}</Text>}
 				</Banner>
