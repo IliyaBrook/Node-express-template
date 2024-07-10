@@ -33,8 +33,6 @@ function Extension() {
 		return extension?.scriptUrl.match(/^(https:\/\/[^\/]+\.com)/)?.[0];
 	};
 	
-	console.log("cartLines:", cartLines)
-	
 	useEffect(() => {
 		async function fetchSavedCart() {
 			try {
